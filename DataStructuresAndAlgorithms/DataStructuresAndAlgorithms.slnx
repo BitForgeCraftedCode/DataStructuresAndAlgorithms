@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../ThreeSum/ThreeSum.csproj" />
+  <Project Path="DataStructuresAndAlgorithms.csproj" />
+</Solution>
