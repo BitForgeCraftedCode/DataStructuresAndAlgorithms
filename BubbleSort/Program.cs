@@ -2,6 +2,28 @@
 {
     internal class Program
     {
+        /*
+            Bubble Sort is a simple, intuitive sorting algorithm that works by repeatedly stepping through a list and comparing adjacent elements. 
+            If a pair is in the wrong order, they are swapped. This process continues in passes until the list is sorted.
+
+            In words:
+
+            You start at the beginning of the list.
+
+            Compare the first two items.
+
+            If the left one is bigger than the right one, swap them.
+
+            Move one position to the right and repeat the comparison.
+
+            Keep doing this until you reach the end of the list — this completes one pass.
+
+            After each full pass, the largest unsorted value “bubbles up” to the end of the list.
+
+            Then you repeat the whole process again, but you can ignore the last element because it’s already in its final position.
+
+            You keep making passes until a full pass occurs with no swaps, which means the list is sorted.
+         */
         static void Main(string[] args)
         {
             int[] array = { 2,12,7,20,17,32,44,56,5 }; 
