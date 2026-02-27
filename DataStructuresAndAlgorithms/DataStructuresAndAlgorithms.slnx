@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="../BubbleSort/BubbleSort.csproj" Id="ae906407-8ae0-4136-b97f-91cebe00de46" />
+  <Project Path="../SelectionSort/SelectionSort.csproj" Id="dc640241-e1dd-4836-9fb8-58da4e036e38" />
   <Project Path="../ThreeSum/ThreeSum.csproj" />
   <Project Path="DataStructuresAndAlgorithms.csproj" />
 </Solution>

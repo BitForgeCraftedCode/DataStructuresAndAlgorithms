@@ -3,6 +3,9 @@
     internal class Program
     {
         /*
+            
+            Bubble sort is stable
+
             Bubble Sort is a simple, intuitive sorting algorithm that works by repeatedly stepping through a list and comparing adjacent elements. 
             If a pair is in the wrong order, they are swapped. This process continues in passes until the list is sorted.
 
