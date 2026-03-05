@@ -39,6 +39,7 @@
         }
 
         //swap elements at index i and j
+        //puts j in i spot
         private static void Swap(int[] array, int i, int j) 
         { 
             if(i == j) return;
