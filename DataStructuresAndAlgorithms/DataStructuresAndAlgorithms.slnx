@@ -3,6 +3,7 @@
   <Project Path="../InsertionSort/InsertionSort.csproj" Id="55a7dc6b-0a70-4e5d-8db2-d45e73edc39e" />
   <Project Path="../Recursion/Recursion.csproj" Id="c0e49024-1914-470c-88b4-08d145d5fb52" />
   <Project Path="../SelectionSort/SelectionSort.csproj" Id="dc640241-e1dd-4836-9fb8-58da4e036e38" />
+  <Project Path="../ShellSort/ShellSort.csproj" Id="6243d33f-d270-4a0a-a2ad-b9f928a77ee1" />
   <Project Path="../ThreeSum/ThreeSum.csproj" />
   <Project Path="DataStructuresAndAlgorithms.csproj" />
 </Solution>
