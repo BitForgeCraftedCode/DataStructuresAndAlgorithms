@@ -42,6 +42,43 @@
      */
     internal class Program
     {
+        //shell sort with kunth gap -- the standard O(n^(3/2))
+        private static void ShellSort(int[] array)
+        {
+            int n = array.Length;
+            int gap = 1;
+            /*
+                n=100
+                1 < 33 gap = 4
+                4 < 33 gap = 13
+                13 < 33 gap = 40
+
+                40 < 33 false end while and biggest gap is 40 
+             */
+            while (gap < n / 3)
+            {
+                gap = 3 * gap + 1;
+            }
+
+            while (gap >= 1)
+            {
+                // Perform a gapped insertion sort
+                for (int i = gap; i < n; i++)
+                {
+                    int temp = array[i];
+                    int j = i;
+
+                    while (j >= gap && array[j - gap] > temp)
+                    {
+                        array[j] = array[j - gap];
+                        j = j - gap;
+                    }
+
+                    array[j] = temp;
+                }
+                gap = gap / 3;
+            }
+        }
         //shell sort with shell's original n/2 gap
         /*
             g = 2
@@ -100,7 +137,8 @@
         {
             Console.WriteLine("Shell Sort");
             int[] array = [22, 34, 25, 12];
-            ShellSortClassicGap(array);
+            //ShellSortClassicGap(array);
+            ShellSort(array);
             foreach (int i in array)
             {
                 Console.WriteLine(i);

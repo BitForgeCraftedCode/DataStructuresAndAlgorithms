@@ -13,6 +13,14 @@ A mostly sorted, insertion sort runs very fast
 
     Almost O(n)
 
+    Shell Sort is an in-place comparison sort that requires O(1) extra memory.
+
+Shell Sort properties:
+
+    In-place: Yes
+    Stable: No
+    Comparison sort: Yes
+
 ------------------------------------------------------------------------
 
 # Step 1 — Choose an Initial Gap
@@ -144,7 +152,9 @@ Example for an array of size 100:
 
 This performs much better than Shell's original sequence.
 
-Average complexity roughly:
+The exact time complexity of Shell Sort depends on the gap sequence.
+
+For the Knuth sequence the average performance is roughly:
 
     ~ O(n^(3/2))
 
@@ -164,8 +174,11 @@ The problem:
 
 These gaps are too similar.
 
-Many comparisons repeat the same relationships between elements, 
-so the algorithm doesn't reduce disorder efficiently.
+The gaps shrink too quickly and share many common factors.
+
+This means elements may remain in the same relative positions across multiple passes,
+reducing the effectiveness of early long-distance moves.
+So the algorithm doesn't reduce disorder efficiently.
 
 The Knuth sequence spreads gaps farther apart, which helps 
 elements move across the array faster.
@@ -232,3 +245,72 @@ So the starting gap is:
 Then divide by 3 each iteration:
 
     40 → 13 → 4 → 1
+
+------------------------------------------------------------------------
+
+# C# Implementation
+
+Step 1 — generate the largest gap:
+
+```
+int gap = 1;
+int n = array.Length;
+while (gap < n / 3)
+{
+    gap = 3 * gap + 1;
+}
+```
+
+Step 2 — run Shell Sort:
+
+```
+while (gap >= 1)
+{
+    // Perform a gapped insertion sort
+    for (int i = gap; i < n; i++)
+    {
+        int temp = array[i];
+        int j = i;
+
+        while (j >= gap && array[j - gap] > temp)
+        {
+            array[j] = array[j - gap];
+            j = j - gap;
+        }
+
+        array[j] = temp;
+    }
+    gap = gap / 3;
+}
+```
+
+------------------------------------------------------------------------
+
+# Why Divide by 3
+
+Because the sequence was built using:
+
+    gap = 3 * gap + 1
+
+Reversing it approximately gives:
+    
+    gap = gap / 3
+
+------------------------------------------------------------------------
+
+# Properties
+
+Time Complexity (depends on gap sequence)
+
+    Best Case:     O(n log n)
+    Average Case:  ~O(n^(3/2)) with Knuth sequence
+    Worst Case:    O(n²)
+
+Space Complexity
+
+    O(1) (in-place)
+
+Stability
+
+    Not stable
+
